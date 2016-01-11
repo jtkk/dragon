@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,12 +77,14 @@ WSGI_APPLICATION = 'DRAGON.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'mydb',
+        # 'USER': 'root',
+        # 'PASSWORD': 'adminadmin',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'mydb',
-        'USER': 'root',
-        'PASSWORD': 'adminadmin',
-        'HOST': 'localhost',
-        'PORT': '3306',
     }
 }
 
