@@ -19,5 +19,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.HomeView.as_view(), name='home'),
+        url(r'^start/$', views.StartPage, name = 'start'),
     url(r'^admin/', include(admin.site.urls)),
+        
 ]
