@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def locations(request):
 	return render(request, 'checkin/locations.html', {})
+
+def FoodBank(request):
+	return render(request, 'checkin/FoodBank.html', {})
