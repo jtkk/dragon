@@ -21,4 +21,5 @@ urlpatterns = [
 	url(r'^$', views.HomeView.as_view(), name='home'),
         url(r'^FoodBank/$', views.FoodBank, name='FoodBank'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^checkin/', include('checkin.urls')),
 ]
