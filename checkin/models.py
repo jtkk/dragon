@@ -10,13 +10,17 @@ from django.utils.encoding import python_2_unicode_compatible
 # For the Member table, we're manually specifying a barcode_id field to be the
 # primary_key.
 @python_2_unicode_compatible # used to support Python 2
-class Member(models.Model):
+class Client(models.Model):
 	barcode_id = models.CharField(max_length=7, primary_key="True")
+	client_id = models.CharField(max_length=10)
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
-	date_of_birth = models.DateField()
 	# Set address to null="True" for now. Change later.
-	address = models.CharField(max_length=50, null="True")
+	address1 = models.CharField(max_length=50, null="True")
+	address2 = models.CharField(max_length=50, null="True")
+	city = models.CharField(max_length=25, null="True")
+	state = models.CharField(max_length=25, null="True")
+	zipcode = models.CharField(max_length=5, null="True")
 
 	# The following is used to return the details rather than [<Member: Member
 	# object>]
@@ -45,8 +49,8 @@ class AttendanceRecord(models.Model):
 	# models.SET_NULL can be changed to models.CASCADE to delete the entry, or
 	# models.PROTECT to keep the referenced member entry from being deleted in the
 	# first place.
-	member = models.ForeignKey(Member, null=True, on_delete=models.SET_NULL)
-	location = models.ForeignKey(Location, on_delete=models.PROTECT)
+	client_barcode_id = models.ForeignKey(Client, null=True, on_delete=models.SET_NULL)
+	location_id = models.ForeignKey(Location, on_delete=models.PROTECT)
 
 	def __str__(self):
 		return '%s %s %s' % (self.date, self.member, self.location)
