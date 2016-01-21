@@ -1,16 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 	<h1>Locations</h1>
-
-	<form action="/checkin/FoodBank" method="get">
-		<input type="submit" name="location" value="Food Bank 1"><br>
-		<input type="submit" name="location" value="Food Bank 2"><br>
-		<input type="submit" name="location" value="Food Bank 3"><br>
-		<input type="submit" name="location" value="Food Bank 4"><br>
-		<input type="submit" name="location" value="Food Bank 5"><br>
-		<input type="submit" name="location" value="Food Bank 6"><br>
-		<input type="submit" name="location" value="Club Bamboo"><br>
-	</form>
-
+	{% for l in locations %}
+		<a href="{% url 'FoodBank' %}?loc_id={{ l.id }}">{{ l.location_name }}</a><br>
+	{% endfor %}
+	
 {% endblock content %}

@@ -53,4 +53,4 @@ class AttendanceRecord(models.Model):
 	location_id = models.ForeignKey(Location, on_delete=models.PROTECT)
 
 	def __str__(self):
-		return '%s %s %s' % (self.date, self.member, self.location)
+		return '%s %s %s' % (self.date, self.client_barcode_id, self.location_id)
